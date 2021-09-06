@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">CftTestApp</string>
+    <string name="sum_in_rub">Введите сумму в рублях: </string>
+    <string name="your_sum">Ваша сумма в этой валюте: </string>
+    <string name="current_curse">По текущему курсу: </string>
+    <string name="previous_curse">По предыдущему курсу: </string>
+    <string name="zero">0.00</string>
+</resources>

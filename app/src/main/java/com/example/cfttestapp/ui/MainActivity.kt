@@ -25,18 +25,21 @@ class MainActivity : AppCompatActivity() {
     @Inject lateinit var valuteListAdapter: ValuteRecyclerViewAdapter
     @Inject lateinit var linearLayoutManager: LinearLayoutManager
 
-    private lateinit var valuteRecyclerView: RecyclerView
-    private lateinit var rubleSumEditText: EditText
+    private val valuteRecyclerView: RecyclerView by lazy {
+        findViewById(R.id.valuteRecyclerView)
+    }
+
+    private val rubleSumEditText: EditText by lazy {
+        findViewById(R.id.moneySumEditText)
+    }
 
     private val rubleSumBundleKey = "ruble_sum_et"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         appComponent . inject(this)
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        valuteRecyclerView  = findViewById(R.id.valuteRecyclerView)
-        rubleSumEditText    = findViewById(R.id.moneySumEditText)
 
         valuteRecyclerView . apply {
             layoutManager = linearLayoutManager
@@ -51,7 +54,6 @@ class MainActivity : AppCompatActivity() {
                     valuteListAdapter.setRubleSum(0.0)
             }
         }
-
     }
 
     override fun onDestroy() {
@@ -69,7 +71,5 @@ class MainActivity : AppCompatActivity() {
         savedInstanceState . getString(rubleSumBundleKey) ?. let { text ->
             rubleSumEditText . setText(text)
         }
-
     }
-
 }

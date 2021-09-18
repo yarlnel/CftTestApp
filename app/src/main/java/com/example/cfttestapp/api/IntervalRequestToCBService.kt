@@ -21,7 +21,7 @@ class IntervalRequestToCBService
     get ()  : Observable<ResponseFromCB>
             = Observable.create { emitter ->
                     // проводим запрос каждые сто секунд
-                    timer.scheduleAtFixedRate(0, 10000) {
+                    timer.scheduleAtFixedRate(0, 100000) {
                         val disposable = centralBankService . getValuteCurse() . subscribe ({
                                 it?.let { responseFromCB ->
                                     emitter.onNext(responseFromCB)

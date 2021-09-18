@@ -37,7 +37,6 @@ class ValuteRecyclerViewAdapter
     }
 
     init {
-
         cbService
             .service
             .observeOn(AndroidSchedulers.mainThread())
@@ -103,6 +102,7 @@ class ValuteRecyclerViewAdapter
         valuteList . size
 
     fun onActivityDestroy () {
+        cbService.stopService()
         compositeDisposable.clear()
     }
 }

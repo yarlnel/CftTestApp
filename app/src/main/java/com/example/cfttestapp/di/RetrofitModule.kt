@@ -21,7 +21,7 @@ class RetrofitModule {
 
     @Provides @Singleton
     fun provideCallAdapterFactory () : CallAdapter.Factory
-            = RxJava2CallAdapterFactory.create()
+        = RxJava2CallAdapterFactory.create()
 
     @Singleton
     @Provides

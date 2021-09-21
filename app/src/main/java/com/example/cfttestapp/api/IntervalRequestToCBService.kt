@@ -21,7 +21,7 @@ class IntervalRequestToCBService
     /**
      * `private val intervalPeriod` - Период между запросами
      */
-    private val intervalPeriod = 10000L // интервал 10 секунд
+    private val intervalPeriod = 40000L // интервал 40 секунд
 
     /**
      * `val service : Observable<ResponseFromCB>` -

@@ -19,6 +19,9 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
+/**
+ * `MainActivity` - Главный экран приложения
+ */
 class MainActivity : AppCompatActivity() {
     @Inject lateinit var centralBankService : CentralBankService
     @Inject lateinit var mainDao: MainDao

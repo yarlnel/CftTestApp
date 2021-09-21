@@ -6,6 +6,9 @@ import androidx.room.TypeConverters
 import com.example.cfttestapp.pojo.ResponseFromCB
 import com.example.cfttestapp.pojo.Valute
 
+/**
+ * `MainDatabase` - класс БД всего приложения
+ */
 @Database(
     entities = [
         ResponseFromCB::class,

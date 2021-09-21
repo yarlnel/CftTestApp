@@ -2,6 +2,9 @@ package com.example.cfttestapp.di
 
 import dagger.Module
 
+/**
+ * `AppModule` - Главный Модуль
+ */
 @Module(includes = [
     RetrofitModule::class,
     RxModule::class,

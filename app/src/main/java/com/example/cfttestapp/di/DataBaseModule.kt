@@ -8,6 +8,9 @@ import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
 
+/**
+ * `DataBaseModule` - Модуль Базы Данных
+ */
 @Module
 class DataBaseModule {
     @Provides @Singleton

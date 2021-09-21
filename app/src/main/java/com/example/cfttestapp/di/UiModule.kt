@@ -5,6 +5,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.Module
 import dagger.Provides
 
+/**
+ * `UiModule` - Модуль отвечающий за Ui
+ */
 @Module
 class UiModule {
     @Provides

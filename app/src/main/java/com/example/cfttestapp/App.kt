@@ -7,6 +7,9 @@ import com.example.cfttestapp.di.ContextModule
 import com.example.cfttestapp.di.DaggerAppComponent
 import com.example.cfttestapp.di.DataBaseModule
 
+/**
+ * `App.kt` - главный класс Application нашего приложения
+ */
 class App : Application () {
     lateinit var appComponent: AppComponent
 

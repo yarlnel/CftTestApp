@@ -5,6 +5,9 @@ import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
 
+/**
+ * `ContextModule` - Модуль отвечающий за предоставление контекста
+ */
 @Module
 class ContextModule (private val appContext: Context) {
     @Provides @Singleton

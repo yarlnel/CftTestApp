@@ -6,6 +6,11 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import javax.inject.Inject
 
+/**
+ * `StringToValuteMapConvector`
+ * - Конвектор для маршалинга или анмаршалинга
+ * - структуры вида `Map<String, Valute>`
+ */
 object StringToValuteMapConvector {
     @JvmStatic
     @TypeConverter

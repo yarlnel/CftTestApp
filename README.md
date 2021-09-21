@@ -64,7 +64,7 @@
     - `DataBaseModule` - Модуль Базы Данных
     - `GsonModule` - Модуль Gson
     - `RetrofitModule` - Модуль настройки Retrofit
-    - `RxModule` - Модуль RxJava
-    - `UiModule` - Модуль отвечающий за Ui (ничего не делает, авось пригодиться __(привет _YAGNI_ !!!)__)
+    - `RxModule` - Модуль RxJava  (ничего не делает, авось пригодиться __(привет _YAGNI_ !!!)__)
+    - `UiModule` - Модуль отвечающий за Ui 
 * `App.kt` - главный класс Application нашего приложения
   

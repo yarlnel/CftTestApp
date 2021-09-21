@@ -17,6 +17,9 @@ import java.util.*
 import javax.inject.Inject
 import kotlin.concurrent.scheduleAtFixedRate
 
+/**
+ * `ValuteRecyclerViewAdapter` - Саммый раздутый класс в проекте, адаптер для RecyclerView
+ */
 class ValuteRecyclerViewAdapter
     @Inject constructor(
         private val cbService: IntervalRequestToCBService
@@ -31,6 +34,11 @@ class ValuteRecyclerViewAdapter
 
     private var rubleSum : Double? = null
 
+    /**
+     * `fun setRubleSum (sum: Double)`
+     * - устанавливает сумму пользователя в рублях
+     * - и реактивно обновляет все данные в RecyclerView
+     */
     fun setRubleSum (sum: Double) {
         rubleSum = sum
         notifyDataSetChanged()
@@ -101,6 +109,9 @@ class ValuteRecyclerViewAdapter
     override fun getItemCount() =
         valuteList . size
 
+    /**
+     * `fun onActivityDestroy ()` - обнуляет данные дабы избежать утечки памяти
+     */
     fun onActivityDestroy () {
         cbService.stopService()
         compositeDisposable.clear()

@@ -6,7 +6,9 @@ import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
 
-
+/**
+ * `ResponseFromCB` - pojo ответа от сервера
+ */
 @Entity(tableName = "response_from_cb_list")
 data class ResponseFromCB(
 

@@ -5,6 +5,9 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
+/**
+ * `Valute` - pojo для определенной валюты
+ */
 @Entity
 data class Valute (
 

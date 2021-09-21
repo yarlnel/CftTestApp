@@ -5,6 +5,9 @@ import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
 
+/**
+ * `GsonModule` - Модуль Gson
+ */
 @Module
 class GsonModule {
     @Provides @Singleton

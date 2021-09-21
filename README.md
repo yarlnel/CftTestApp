@@ -29,6 +29,9 @@
     + `fun getValuteCurse () : Single<ResponseFromCB>` - Метод возвращает текущий курс валют обернутый в Single
 * __db__ пакет отвечающий за работу с Базой Данных
   - `MainDao` - DAO [(Data Access Object)](https://ru.wikipedia.org/wiki/Data_Access_Object) - Объект доступа к данным
+    + `fun saveResponseFromCB (responseFromCB: ResponseFromCB)` - Сохраняет ответ от сервера в БД
+    + `fun getAllResponseFromCB () : List<ResponseFromCB>` - Получает все объекты типа ResponseFromCB из БД
+    + `fun getLastResponseFromCB () : ResponseFromCB` - Получает последний записанный в Базу Данных ответ от сервера центробанка
   - `MainDatabase` - класс БД всего приложения
   - `StringToValuteMapConvector` - Конвектор для маршалинга или анмаршалинга структуры вида `Map<String, Valute>`
 * __pojo__ пакет с POJO (Ну скорее с kotlin data classes) для удобного анмаршалинга данных из json 

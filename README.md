@@ -12,25 +12,25 @@
   
 ## Преимущества именно моего проекта:
   1) Четкая организация кода по пакетам
-  2) Использование DI на полную катужку (Спасибо выученному недавно Dagger-у)
+  2) Использование DI на полную катушку (Спасибо выученному недавно Dagger-у)
   3) Документация в markdown `:)`
   4) Более-менее читаемый код
     
     
 ## Структура проекта:
-* __api__ пакет отвечающий за взаимодествие с внешнеми ресурсами (Через Retrofit):
-  - `IntervalRequestToCBService` - класс отвечающий за переодические запросы к серверу центробанка
+* __api__ пакет отвечающий за взаимодействие с внешними ресурсами (Через Retrofit):
+  - `IntervalRequestToCBService` - класс отвечающий за периодические запросы к серверу центробанка
      + `private val intervalPeriod` - Период между запросами
      + `val service : Observable<ResponseFromCB>` -
-        Метод возврощающий RxProducer(Observable) который
-        переодически делает запросы через  CentralBankService().getValuteCurse() 
-     + `fun stopService ()` -  остонавливает таймер что-бы не возникло утечки ресурсов
-  - `CentralBankService` - итерфейс сервиса взаимодействия с api центробанка реализуемый ретрофитом
+          Метод возвращающий RxProducer(Observable) который\
+          периодически делает запросы через  `CentralBankService().getValuteCurse()` 
+     + `fun stopService ()` -  останавливает таймер чтобы не возникло утечки ресурсов
+  - `CentralBankService` - интерфейс сервиса взаимодействия с api центробанка реализуемый ретрофитом
     + `fun getValuteCurse () : Single<ResponseFromCB>` - Метод возвращает текущий курс валют обернутый в Single
 * __db__ пакет отвечающий за работу с Базой Данных
-  - `MainDao` - DAO [(Data Access Object)](https://ru.wikipedia.org/wiki/Data_Access_Object) - Обьект доступа к данным
-  - `MainDatabase` - класс БД всего преложения
-  - `StringToValuteMapConvector` - Конвектор для маршалинга или анмаршалинга струкры вида `Map<String, Valute>`
+  - `MainDao` - DAO [(Data Access Object)](https://ru.wikipedia.org/wiki/Data_Access_Object) - Объект доступа к данным
+  - `MainDatabase` - класс БД всего приложения
+  - `StringToValuteMapConvector` - Конвектор для маршалинга или анмаршалинга структуры вида `Map<String, Valute>`
 * __pojo__ пакет с POJO (Ну скорее с kotlin data clasess) для удобного анмаршалинга данных из json 
   - `ResponseFromCB` - pojo ответа от сервера
   - `Valute` - pojo для определенной валюты
@@ -55,8 +55,8 @@
               .let(compositeDisposable::add)
       }```
      + `fun onActivityDestroy ()` - обнуляет данные дабы избежать утечки памяти
-     + `fun setRubleSum (sum: Double)` - устанвлевает сумму пользователя в рублях и реактивно обнавляет все данные в RecyclerView
-* __di__ пакет отвечающий за внедрение зависимотей
+     + `fun setRubleSum (sum: Double)` - устанавливает сумму пользователя в рублях и реактивно обновляет все данные в RecyclerView
+* __di__ пакет отвечающий за внедрение зависимостей
     - `AppComponent` - Главный DI Компонент
     - `AppModule` - Главный Модуль
     - `ContextModule` - Модуль отвечающий за предоставление контекста

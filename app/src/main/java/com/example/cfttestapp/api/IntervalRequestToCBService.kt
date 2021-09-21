@@ -7,7 +7,9 @@ import io.reactivex.disposables.CompositeDisposable
 import java.util.*
 import javax.inject.Inject
 import kotlin.concurrent.scheduleAtFixedRate
-
+/**
+ *  `IntervalRequestToCBService` - класс отвечающий за периодические запросы к серверу центробанка
+ */
 class IntervalRequestToCBService
 @Inject constructor(
     private val centralBankService: CentralBankService,
@@ -16,13 +18,22 @@ class IntervalRequestToCBService
 
     private val timer = Timer()
 
+    /**
+     * `private val intervalPeriod` - Период между запросами
+     */
+    private val intervalPeriod = 10000L // интервал 10 секунд
 
+    /**
+     * `val service : Observable<ResponseFromCB>` -
+     *      Метод возвращающий RxProducer(Observable) который
+     *      периодически делает запросы через  `CentralBankService().getValuteCurse()`
+     */
     val service
     get ()  : Observable<ResponseFromCB>
             = Observable.create { emitter ->
                     // проводим запрос каждые сто секунд
-                    timer.scheduleAtFixedRate(0, 100000) {
-                        val disposable = centralBankService . getValuteCurse() . subscribe ({
+                    timer.scheduleAtFixedRate(0, intervalPeriod) {
+                        centralBankService . getValuteCurse() . subscribe ({
                                 it?.let { responseFromCB ->
                                     emitter.onNext(responseFromCB)
 
@@ -40,7 +51,9 @@ class IntervalRequestToCBService
 
             }
 
-
+    /**
+     * `fun stopService ()` -  останавливает таймер чтобы не возникло утечки ресурсов
+     */
     fun stopService () {
         timer.cancel()
     }

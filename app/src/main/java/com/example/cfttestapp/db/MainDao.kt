@@ -5,6 +5,9 @@ import androidx.room.Insert
 import androidx.room.Query
 import com.example.cfttestapp.pojo.ResponseFromCB
 
+/**
+ * `MainDao` - DAO [(Data Access Object)](https://ru.wikipedia.org/wiki/Data_Access_Object) - Объект доступа к данным
+ */
 @Dao
 interface MainDao {
 

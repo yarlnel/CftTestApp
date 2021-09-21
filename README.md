@@ -1,6 +1,6 @@
 # ___CftTestApp___ - Тестовое задание для компании ЦФТ 
 ## Используемые библиотеки:
-  0) Ritrofit 2
+  0) Retrofit 2
   0) Dagger 2
   0) Room Dao
   0) Gson 
@@ -31,7 +31,7 @@
   - `MainDao` - DAO [(Data Access Object)](https://ru.wikipedia.org/wiki/Data_Access_Object) - Объект доступа к данным
   - `MainDatabase` - класс БД всего приложения
   - `StringToValuteMapConvector` - Конвектор для маршалинга или анмаршалинга структуры вида `Map<String, Valute>`
-* __pojo__ пакет с POJO (Ну скорее с kotlin data clasess) для удобного анмаршалинга данных из json 
+* __pojo__ пакет с POJO (Ну скорее с kotlin data classes) для удобного анмаршалинга данных из json 
   - `ResponseFromCB` - pojo ответа от сервера
   - `Valute` - pojo для определенной валюты
 * __ui__ пакет со всем что отвечает за UI
@@ -53,7 +53,8 @@
                          notifyDataSetChanged()
               },{})
               .let(compositeDisposable::add)
-      }```
+      }
+      ```
      + `fun onActivityDestroy ()` - обнуляет данные дабы избежать утечки памяти
      + `fun setRubleSum (sum: Double)` - устанавливает сумму пользователя в рублях и реактивно обновляет все данные в RecyclerView
 * __di__ пакет отвечающий за внедрение зависимостей
@@ -64,6 +65,6 @@
     - `GsonModule` - Модуль Gson
     - `RetrofitModule` - Модуль настройки Retrofit
     - `RxModule` - Модуль RxJava
-    - `UiModule` - Модуль отвечающий за Ui (ничего не делает, авось пригодиться __(привет _YAGINI_ !!!)__)
+    - `UiModule` - Модуль отвечающий за Ui (ничего не делает, авось пригодиться __(привет _YAGNI_ !!!)__)
 * `App.kt` - главный класс Application нашего приложения
   

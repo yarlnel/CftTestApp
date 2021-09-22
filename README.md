@@ -27,15 +27,14 @@
           периодически делает запросы через  `CentralBankService().getValuteCurse()` 
           
      + `fun stopService ()` -  останавливает таймер чтобы не возникло утечки ресурсов  
-    
-    
+   
+   
   - `CentralBankService` - интерфейс сервиса взаимодействия с api центробанка реализуемый ретрофитом
     + `fun getValuteCurse () : Single<ResponseFromCB>`    
      - Метод возвращает текущий курс валют обернутый в Single   
 
 
 * __db__ пакет отвечающий за работу с Базой Данных  
-
   - `MainDao` - DAO [(Data Access Object)](https://ru.wikipedia.org/wiki/Data_Access_Object) - Объект доступа к данным
   
     + `fun saveResponseFromCB (responseFromCB: ResponseFromCB)` - Сохраняет ответ от сервера в БД
@@ -43,14 +42,13 @@
     + `fun getAllResponseFromCB () : List<ResponseFromCB>` - Получает все объекты типа ResponseFromCB из БД
    
     + `fun getLastResponseFromCB () : ResponseFromCB` - Получает последний записанный в Базу Данных ответ от сервера центробанка  
-   
+    
     
   - `MainDatabase` - класс БД всего приложения
   - `StringToValuteMapConvector` - Конвектор для маршалинга или анмаршалинга структуры вида `Map<String, Valute>`  
   
   
 * __pojo__ пакет с POJO (Ну скорее с kotlin data classes) для удобного анмаршалинга данных из json 
-
   - `ResponseFromCB` - pojo ответа от сервера
   - `Valute` - pojo для определенной валюты  
   
@@ -59,25 +57,6 @@
   - `MainActivity` - Главный экран приложения
   
   - `ValuteRecyclerViewAdapter` - Саммый раздутый класс в проекте, адаптер для RecyclerView 
-    + ```kotlin
-      // Init блок нашего адаптера
-      init {
-          cbService
-              .service
-              .observeOn(AndroidSchedulers.mainThread())
-              .subscribeOn(Schedulers.io())
-              .subscribe({
-                         valuteList.clear()
-                         valuteList.addAll(
-                             it.valutes?.map { e -> e.value }
-                             ?:
-                             listOf(Valute()))
-                         notifyDataSetChanged()
-              },{})
-              .let(compositeDisposable::add)
-      }
-      ```
-      
      + `fun onActivityDestroy ()` - обнуляет данные дабы избежать утечки памяти
      
      + `fun setRubleSum (sum: Double)` - устанавливает сумму пользователя в рублях и реактивно обновляет все данные в RecyclerView
